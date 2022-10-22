@@ -4,34 +4,40 @@
 
 /* https://tailwindcss.com/docs/customizing-colors#using-css-variable */
 @layer base {
-    .dark:root {
-        --color-primary: 50 148 248;
-        --color-base-title: 231 237 244;
-        --color-base-subtitle: 196 212 227;
-        --color-base-text: 175 194 212;
-        --color-base-span: 123 150 178;
-        --color-base-label: 58 83 107;
-        --color-base-border: 28 47 65;
-        --color-base-post: 17 33 49;
-        --color-base-profile: 11 27 43;
-        --color-base-background: 7 20 34;
-        --color-base-input: 4 15 26;
-    }
+  .dark:root {
+    --color-primary: 50 148 248;
+    --color-base-title: 231 237 244;
+    --color-base-subtitle: 196 212 227;
+    --color-base-text: 175 194 212;
+    --color-base-span: 123 150 178;
+    --color-base-label: 58 83 107;
+    --color-base-border: 28 47 65;
+    --color-base-post: 17 33 49;
+    --color-base-profile: 11 27 43;
+    --color-base-background: 7 20 34;
+    --color-base-input: 4 15 26;
+  }
 
-    :root {
-        --color-primary: 50 148 248;
-        --color-base-title: 231 237 244;
-        --color-base-subtitle: 196 212 227;
-        --color-base-text: 175 194 212;
-        --color-base-span: 123 150 178;
-        --color-base-label: 58 83 107;
-        --color-base-border: 28 47 65;
-        --color-base-post: 17 33 49;
-        --color-base-profile: 11 27 43;
-        --color-base-background: 7 20 34;
-        --color-base-input: 4 15 26;
-    }
+  :root {
+    --color-primary: 50 148 248;
+    --color-base-title: 231 237 244;
+    --color-base-subtitle: 196 212 227;
+    --color-base-text: 175 194 212;
+    --color-base-span: 123 150 178;
+    --color-base-label: 58 83 107;
+    --color-base-border: 28 47 65;
+    --color-base-post: 17 33 49;
+    --color-base-profile: 11 27 43;
+    --color-base-background: 7 20 34;
+    --color-base-input: 4 15 26;
+  }
 }
 
 body {
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  line-height: 160%;
+  -webkit-font-smoothing: antialiased;
+  background-color: theme(colors.base-background);
 }

@@ -1,5 +1,11 @@
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './routes/Router'
 import './styles/main.css'
 
 export const App = () => {
-  return <h1 className="text-3xl font-bold bg-primary">Hello world!</h1>
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  )
 }

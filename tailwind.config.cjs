@@ -3,6 +3,10 @@ module.exports = {
   content: ['./src/**/*.tsx', './index.html'],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      sans: ['Nunito', 'sans-serif'],
+      mono: ['Fira Code', 'monospace'],
+    },
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
@@ -16,6 +20,9 @@ module.exports = {
         'base-profile': 'rgb(var(--color-base-profile) / <alpha-value>)',
         'base-background': 'rgb(var(--color-base-background) / <alpha-value>)',
         'base-input': 'rgb(var(--color-base-input) / <alpha-value>)',
+      },
+      backgroundImage: {
+        'lines-cover': "url('./public/assets/images/cover.svg')",
       },
     },
   },
