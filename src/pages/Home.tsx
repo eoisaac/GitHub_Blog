@@ -5,6 +5,7 @@ import {
   MagnifyingGlass,
   Users,
 } from 'phosphor-react'
+import { ChangeEvent, useState } from 'react'
 import { useQuery } from 'react-query'
 import { Issue, Profile } from '../@types/types'
 import { Header } from '../components/Header'
@@ -17,7 +18,20 @@ export const Home = () => {
   const { data: profile } = useQuery<Profile>('PROFILE', getUserProfile)
   const { data: issuesList } = useQuery<Issue[]>('ISSUES_LIST', getIssues)
 
+  const [filterSearch, setFilterSearch] = useState('')
+  const hasFilterSearch = filterSearch.length > 0
+
+  const filteredPosts = issuesList?.filter(
+    (issue) =>
+      issue.title.toLocaleLowerCase().includes(filterSearch) ||
+      issue.body.toLocaleLowerCase().includes(filterSearch),
+  )
+
   const issuesAmount = issuesList?.length
+
+  const handleFilterSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setFilterSearch(event.target.value.toLowerCase())
+  }
 
   return (
     <>
@@ -45,7 +59,7 @@ export const Home = () => {
 
           <p className="text-base-subtitle">{profile?.bio}</p>
 
-          <ul className="flex items-center flex-wrap gap-4">
+          <ul className="flex items-center flex-wrap gap-4 overflow-y-auto">
             <InfoItem
               label={profile?.login!}
               icon={<GithubLogo />}
@@ -68,10 +82,15 @@ export const Home = () => {
       </Header>
 
       <main className="flex flex-col gap-4 sm:gap-12">
-        <div className="w-full flex flex-col gap-3">
+        <div
+          className="w-full flex flex-col gap-3 sticky top-0 inset-x-0 
+        bg-base-background py-4"
+        >
           <div className="flex justify-between items-center">
             <h2 className="text-base-subtitle text-lg font-bold">Posts</h2>
-            <span className="text-base-span text-sm">{`${issuesAmount} posts`}</span>
+            <span className="text-base-span text-sm">
+              {`${issuesAmount} posts`}
+            </span>
           </div>
           <label className="w-full">
             <span className="sr-only">Search post</span>
@@ -93,15 +112,20 @@ export const Home = () => {
                 placeholder="Search post"
                 className="w-full text-base-text placeholder-base-label 
                 bg-transparent focus:shadow-none"
+                onChange={handleFilterSearch}
               />
             </div>
           </label>
         </div>
 
-        <ul className="h-full grid sm:grid-cols-2  gap-4 sm:gap-8">
-          {issuesList?.map((issue) => {
-            return <PostCard key={issue.number} issue={issue} />
-          })}
+        <ul className="grid sm:grid-cols-2  gap-4 sm:gap-8">
+          {hasFilterSearch
+            ? filteredPosts?.map((issue) => (
+                <PostCard key={issue.number} issue={issue} />
+              ))
+            : issuesList?.map((issue) => (
+                <PostCard key={issue.number} issue={issue} />
+              ))}
         </ul>
       </main>
     </>
