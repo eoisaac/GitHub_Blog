@@ -7,7 +7,7 @@ import {
 } from 'phosphor-react'
 import { Header } from '../components/Header'
 import { InfoItem } from '../components/InfoItem'
-import { Link } from '../components/Link'
+import { NavigationLink } from '../components/NavigationLink'
 import { PostCard } from '../components/PostCard'
 
 export const Home = () => {
@@ -26,11 +26,12 @@ export const Home = () => {
               Isaac Santiago
             </h1>
 
-            <Link
+            <NavigationLink
               label="GitHub"
               url="https://github.com/eoisaac"
               icon={<ArrowSquareOut weight="bold" />}
               iconRight
+              external
             />
           </div>
 
