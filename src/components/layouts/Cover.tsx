@@ -11,12 +11,14 @@ export const Cover = () => {
         <img
           src={`${imagesPath}/symbol.svg`}
           alt="Terminal symbol"
-          className="self-center"
+          className="h-[40px] w-[46px] self-center"
+          loading="lazy"
         />
         <img
           src={`${imagesPath}/title.svg`}
           alt="GitHub Blog"
-          className="self-center"
+          className="h-[19px] w-[145px] self-center"
+          loading="lazy"
         />
         <span className="sr-only">GitHub Blog</span>
       </h2>

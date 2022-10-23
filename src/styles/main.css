@@ -5,31 +5,31 @@
 /* https://tailwindcss.com/docs/customizing-colors#using-css-variable */
 @layer base {
   .dark:root {
-    --color-primary: 50 148 248;
-    --color-base-title: 231 237 244;
-    --color-base-subtitle: 196 212 227;
-    --color-base-text: 175 194 212;
-    --color-base-span: 123 150 178;
-    --color-base-label: 58 83 107;
-    --color-base-border: 28 47 65;
+    --color-primary: #3294F8;
+    --color-base-title: #E7EDF4;
+    --color-base-subtitle: #C4D4E3;
+    --color-base-text: #AFC2D4;
+    --color-base-span: #7B96B2;
+    --color-base-label: #3A536B;
+    --color-base-border: #1C2F41;
     --color-base-post: 17 33 49;
-    --color-base-profile: 11 27 43;
-    --color-base-background: 7 20 34;
-    --color-base-input: 4 15 26;
+    --color-base-profile: #0B1B2B;
+    --color-base-background: #071422;
+    --color-base-input: #040F1A;
   }
 
   :root {
-    --color-primary: 50 148 248;
-    --color-base-title: 231 237 244;
-    --color-base-subtitle: 196 212 227;
-    --color-base-text: 175 194 212;
-    --color-base-span: 123 150 178;
-    --color-base-label: 58 83 107;
-    --color-base-border: 28 47 65;
-    --color-base-post: 17 33 49;
-    --color-base-profile: 11 27 43;
-    --color-base-background: 7 20 34;
-    --color-base-input: 4 15 26;
+    --color-primary: #3294F8;
+    --color-base-title: #E7EDF4;
+    --color-base-subtitle: #C4D4E3;
+    --color-base-text: #AFC2D4;
+    --color-base-span: #7B96B2;
+    --color-base-label: #3A536B;
+    --color-base-border: #1C2F41;
+    --color-base-post: #112131;
+    --color-base-profile: #0B1B2B;
+    --color-base-background: #071422;
+    --color-base-input: #040F1A;
   }
 }
 

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Issue } from '../@types/types'
+import { formateDateRelativeToNow } from '../utils/formateDateDistanceToNow'
 
 interface PostCartProps {
   issue: Issue
@@ -12,6 +13,11 @@ export const PostCard = ({ issue }: PostCartProps) => {
     navigate(`posts/${issue.number.toString()}`)
   }
 
+  const relativeDateDistanceToNow = formateDateRelativeToNow(
+    'en-US',
+    new Date(issue.created_at),
+  )
+
   return (
     <li
       className="w-full h-[260px] cursor-pointer overflow-hidden 
@@ -23,9 +29,12 @@ export const PostCard = ({ issue }: PostCartProps) => {
         className="w-full h-full flex flex-col gap-4 sm:gap-8 
         p-4 sm:p-8 bg-base-post"
       >
-        <header className="w-full flex items-center justify-between gap-4">
+        <header
+          className="w-full flex items-center justify-between 
+          flex-wrap gap-4"
+        >
           <h3 className="text-xl font-bold text-base-title">{issue.title}</h3>
-          <div className="whitespace-nowrap">Há 1 dia</div>
+          <div className="whitespace-nowrap">{relativeDateDistanceToNow}</div>
         </header>
         <p className="flex-1 overflow-hidden text-ellipsis">{issue.body}</p>
       </article>

@@ -40,6 +40,7 @@ export const Home = () => {
           src={profile?.avatar_url}
           alt="Isaac Santiago"
           className="w-36 h-36 rounded-lg"
+          loading="lazy"
         />
 
         <div className="h-full w-full flex flex-col items-start justify-between gap-4">
