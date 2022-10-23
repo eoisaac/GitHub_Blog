@@ -5,11 +5,14 @@ import {
   ChatCircle,
   GithubLogo,
 } from 'phosphor-react'
+import { useParams } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { InfoItem } from '../components/InfoItem'
 import { NavigationLink } from '../components/NavigationLink'
 
 export const Post = () => {
+  const { id } = useParams()
+
   return (
     <>
       <Header>
@@ -30,10 +33,9 @@ export const Post = () => {
             />
           </div>
 
-          <p className="text-base-subtitle">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt,
-            eos? Voluptatem eius.
-          </p>
+          <h1 className="text-2xl font-bold text-base-title">
+            JavaScript data types and data structures - {id?.toUpperCase()}
+          </h1>
 
           <ul className="flex items-center flex-wrap gap-4">
             <InfoItem

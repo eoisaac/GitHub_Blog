@@ -5,12 +5,20 @@ import {
   MagnifyingGlass,
   Users,
 } from 'phosphor-react'
+import { useQuery } from 'react-query'
+import { Issue } from '../@types/types'
 import { Header } from '../components/Header'
 import { InfoItem } from '../components/InfoItem'
 import { NavigationLink } from '../components/NavigationLink'
 import { PostCard } from '../components/PostCard'
+import { getAllIssues } from '../services/axios/requests/githubApi'
 
 export const Home = () => {
+  const { data: issuesList, isFetching } = useQuery<Issue[]>(
+    'ISSUES',
+    getAllIssues,
+  )
+
   return (
     <>
       <Header>
@@ -20,7 +28,7 @@ export const Home = () => {
           className="w-36 h-36 rounded-lg"
         />
 
-        <div className="flex flex-col items-start justify-between gap-4">
+        <div className="h-full w-full flex flex-col items-start justify-between gap-4">
           <div className="w-full flex items-center justify-between gap-4">
             <h1 className="text-base-title text-2xl font-bold">
               Isaac Santiago
@@ -37,7 +45,6 @@ export const Home = () => {
 
           <p className="text-base-subtitle">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt,
-            eos? Voluptatem eius.
           </p>
 
           <ul className="flex items-center flex-wrap gap-4">
@@ -80,10 +87,9 @@ export const Home = () => {
         </div>
 
         <ul className="h-full grid sm:grid-cols-2  gap-4 sm:gap-8">
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
+          {issuesList?.map((issue) => {
+            return <PostCard key={issue.id} issue={issue} />
+          })}
         </ul>
       </main>
     </>
