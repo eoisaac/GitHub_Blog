@@ -5,13 +5,22 @@ import {
   ChatCircle,
   GithubLogo,
 } from 'phosphor-react'
-import { useParams } from 'react-router-dom'
+// import { useQuery } from 'react-query'
+// import { PostContent } from '../@types/types'
+// import { useParams } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { InfoItem } from '../components/InfoItem'
 import { NavigationLink } from '../components/NavigationLink'
+// import { getPost } from '../services/axios/requests/githubApi'
 
 export const Post = () => {
-  const { id } = useParams()
+  // const { number } = useParams()
+
+  // const getPostData = () => {
+  //   return getPost(number)
+  // }
+
+  // const { data: post } = useQuery<PostContent>('POST', getPostData)
 
   return (
     <>
@@ -26,20 +35,18 @@ export const Post = () => {
 
             <NavigationLink
               label="View in GitHub"
-              url="https://github.com/eoisaac"
+              url={''}
               icon={<ArrowSquareOut weight="bold" />}
               iconRight
               external
             />
           </div>
 
-          <h1 className="text-2xl font-bold text-base-title">
-            JavaScript data types and data structures - {id?.toUpperCase()}
-          </h1>
+          <h1 className="text-2xl font-bold text-base-title">{''}</h1>
 
           <ul className="flex items-center flex-wrap gap-4">
             <InfoItem
-              label="eoisaac"
+              label={''}
               icon={<GithubLogo />}
               title="GitHub"
               variant="secondary"
@@ -51,7 +58,7 @@ export const Post = () => {
               variant="secondary"
             />
             <InfoItem
-              label="5 comments"
+              label={''}
               icon={<ChatCircle />}
               title="Comments"
               variant="secondary"
@@ -60,7 +67,7 @@ export const Post = () => {
         </div>
       </Header>
 
-      <main className="h-full flex flex-col gap-4 sm:gap-12"></main>
+      <main className="h-full flex flex-col gap-4 sm:gap-12">{''}</main>
     </>
   )
 }

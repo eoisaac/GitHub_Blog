@@ -6,24 +6,24 @@ import {
   Users,
 } from 'phosphor-react'
 import { useQuery } from 'react-query'
-import { Issue } from '../@types/types'
+import { Issue, Profile } from '../@types/types'
 import { Header } from '../components/Header'
 import { InfoItem } from '../components/InfoItem'
 import { NavigationLink } from '../components/NavigationLink'
 import { PostCard } from '../components/PostCard'
-import { getAllIssues } from '../services/axios/requests/githubApi'
+import { getIssues, getUserProfile } from '../services/axios/requests/githubApi'
 
 export const Home = () => {
-  const { data: issuesList, isFetching } = useQuery<Issue[]>(
-    'ISSUES',
-    getAllIssues,
-  )
+  const { data: profile } = useQuery<Profile>('PROFILE', getUserProfile)
+  const { data: issuesList } = useQuery<Issue[]>('ISSUES_LIST', getIssues)
+
+  const issuesAmount = issuesList?.length
 
   return (
     <>
       <Header>
         <img
-          src="https://github.com/eoisaac.png"
+          src={profile?.avatar_url}
           alt="Isaac Santiago"
           className="w-36 h-36 rounded-lg"
         />
@@ -31,35 +31,47 @@ export const Home = () => {
         <div className="h-full w-full flex flex-col items-start justify-between gap-4">
           <div className="w-full flex items-center justify-between gap-4">
             <h1 className="text-base-title text-2xl font-bold">
-              Isaac Santiago
+              {profile?.name}
             </h1>
 
             <NavigationLink
               label="GitHub"
-              url="https://github.com/eoisaac"
+              url={profile?.html_url!}
               icon={<ArrowSquareOut weight="bold" />}
               iconRight
               external
             />
           </div>
 
-          <p className="text-base-subtitle">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt,
-          </p>
+          <p className="text-base-subtitle">{profile?.bio}</p>
 
           <ul className="flex items-center flex-wrap gap-4">
-            <InfoItem label="eoisaac" icon={<GithubLogo />} title="GitHub" />
-            <InfoItem label="@Zumpy" icon={<Buildings />} title="Company" />
-            <InfoItem label="69 followers" icon={<Users />} title="Followers" />
+            <InfoItem
+              label={profile?.login!}
+              icon={<GithubLogo />}
+              title="GitHub"
+            />
+            {profile?.company && (
+              <InfoItem
+                label={profile.company}
+                icon={<Buildings />}
+                title="Company"
+              />
+            )}
+            <InfoItem
+              label={`${profile?.followers} followers`}
+              icon={<Users />}
+              title="Followers"
+            />
           </ul>
         </div>
       </Header>
 
-      <main className="h-full flex flex-col gap-4 sm:gap-12">
+      <main className="flex flex-col gap-4 sm:gap-12">
         <div className="w-full flex flex-col gap-3">
           <div className="flex justify-between items-center">
             <h2 className="text-base-subtitle text-lg font-bold">Posts</h2>
-            <span className="text-base-span text-sm">10 posts</span>
+            <span className="text-base-span text-sm">{`${issuesAmount} posts`}</span>
           </div>
           <label className="w-full">
             <span className="sr-only">Search post</span>
@@ -88,7 +100,7 @@ export const Home = () => {
 
         <ul className="h-full grid sm:grid-cols-2  gap-4 sm:gap-8">
           {issuesList?.map((issue) => {
-            return <PostCard key={issue.id} issue={issue} />
+            return <PostCard key={issue.number} issue={issue} />
           })}
         </ul>
       </main>

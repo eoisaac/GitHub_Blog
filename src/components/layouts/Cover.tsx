@@ -3,7 +3,7 @@ export const Cover = () => {
 
   return (
     <div
-      className="h-full max-h-48 md:max-h-72 relative top-0 
+      className="h-48 md:h-72 relative top-0 
       inset-x-0 z-10 flex justify-center items-start pt-10 md:pt-16
       bg-lines-cover bg-cover bg-center"
     >

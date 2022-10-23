@@ -8,7 +8,7 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/posts/:id" element={<Post />} />
+        <Route path="/posts/:number" element={<Post />} />
       </Route>
 
       {/* <Route path="*" element={<NotFound />} /> */}

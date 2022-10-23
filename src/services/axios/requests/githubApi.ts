@@ -11,7 +11,7 @@ export const getUserProfile = async () => {
   return response.data
 }
 
-export const getAllIssues = async () => {
+export const getIssues = async () => {
   const response = await github.get(
     `/repos/${GITHUB.USER}/${GITHUB.REPOSITORY}/issues`,
   )
@@ -19,7 +19,7 @@ export const getAllIssues = async () => {
   return response.data
 }
 
-export const getIssue = async (id: string) => {
+export const getPost = async (id: string) => {
   const response = await github.get(
     `/repos/${GITHUB.USER}/${GITHUB.REPOSITORY}/issues/${id}`,
   )

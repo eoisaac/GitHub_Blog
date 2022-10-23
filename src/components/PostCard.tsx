@@ -9,7 +9,7 @@ export const PostCard = ({ issue }: PostCartProps) => {
   const navigate = useNavigate()
 
   const handleNavigateToPostPage = () => {
-    navigate(`posts/${issue.id}`)
+    navigate(`posts/${issue.number.toString()}`)
   }
 
   return (
