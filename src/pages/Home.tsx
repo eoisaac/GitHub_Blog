@@ -8,10 +8,11 @@ import {
 import { Header } from '../components/Header'
 import { InfoItem } from '../components/InfoItem'
 import { Link } from '../components/Link'
+import { PostCard } from '../components/PostCard'
 
 export const Home = () => {
   return (
-    <div>
+    <>
       <Header>
         <img
           src="https://github.com/eoisaac.png"
@@ -46,7 +47,7 @@ export const Home = () => {
         </div>
       </Header>
 
-      <main className="h-full">
+      <main className="h-full flex flex-col gap-4 sm:gap-12">
         <div className="w-full flex flex-col gap-3">
           <div className="flex justify-between items-center">
             <h2 className="text-base-subtitle text-lg font-bold">Posts</h2>
@@ -57,8 +58,9 @@ export const Home = () => {
 
             <div
               className="flex gap-4 px-4 py-3 rounded-md bg-base-input 
-              focus-within border border-base-border focus-within:border-primary
-              focus-within:text-primary"
+              text-base-label border border-base-border 
+              focus-within:border-primary focus-within:text-primary transition 
+              ease-in-out duration-200"
             >
               <span
                 className="flex items-center text-inherit"
@@ -76,12 +78,13 @@ export const Home = () => {
           </label>
         </div>
 
-        <ul>
-          <li>
-            <article></article>
-          </li>
+        <ul className="h-full grid sm:grid-cols-2  gap-4 sm:gap-8">
+          <PostCard />
+          <PostCard />
+          <PostCard />
+          <PostCard />
         </ul>
       </main>
-    </div>
+    </>
   )
 }

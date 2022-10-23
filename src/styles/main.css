@@ -47,6 +47,16 @@
   box-shadow: 0 0 0 1px theme(colors.primary);
 }
 
+::-webkit-scrollbar {
+    width: theme(borderWidth.2);
+    height: theme(borderWidth.2);
+    background-color: theme(colors.base-background);
+  }
+  ::-webkit-scrollbar-thumb {
+		border-radius: theme(borderRadius.2xl);
+     background-color: theme(colors.base-label);
+  }
+
 body {
   font-size: theme(fontSize.base);
   font-family: 'Nunito', sans-serif;

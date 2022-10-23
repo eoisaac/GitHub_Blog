@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
 import { DefaultLayout } from '../components/layouts/DefaultLayout'
 import { Home } from '../pages/Home'
-import { Topic } from '../pages/Topic'
+import { Post } from '../pages/Post'
 
 export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/topic" element={<Topic />} />
+        <Route path="/post" element={<Post />} />
       </Route>
 
       {/* <Route path="*" element={<NotFound />} /> */}

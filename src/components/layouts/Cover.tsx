@@ -1,4 +1,6 @@
 export const Cover = () => {
+  const imagesPath = import.meta.env.VITE_IMAGES_PATH
+
   return (
     <div
       className="h-full max-h-48 md:max-h-72 relative top-0 
@@ -7,12 +9,12 @@ export const Cover = () => {
     >
       <h2 className="flex md:flex-col justify-center content-center flex-wrap gap-6">
         <img
-          src="../../../public/assets/images/symbol.svg"
+          src={`${imagesPath}/symbol.svg`}
           alt="Terminal symbol"
           className="self-center"
         />
         <img
-          src="../../../public/assets/images/title.svg"
+          src={`${imagesPath}/title.svg`}
           alt="GitHub Blog"
           className="self-center"
         />

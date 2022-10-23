@@ -15,7 +15,7 @@ export const InfoItem = ({
     variant === 'primary' ? 'text-base-subtitle' : 'text-base-span'
 
   return (
-    <li className="flex items-center gap-2" title={title}>
+    <li className="flex items-center gap-1" title={title}>
       <span className="text-xl text-base-label ">{icon}</span>
       <span className={`${labelColor}`}>{label}</span>
     </li>
