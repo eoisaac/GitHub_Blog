@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import { DefaultLayout } from '../components/layouts/DefaultLayout'
 import { Home } from '../pages/Home'
+import { NotFound } from '../pages/NotFound'
 import { Post } from '../pages/Post'
 
 export const Router = () => {
@@ -11,7 +12,7 @@ export const Router = () => {
         <Route path="/posts/:number" element={<Post />} />
       </Route>
 
-      {/* <Route path="*" element={<NotFound />} /> */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }

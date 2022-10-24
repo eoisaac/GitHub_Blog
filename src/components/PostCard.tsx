@@ -10,7 +10,7 @@ export const PostCard = ({ issue }: PostCartProps) => {
   const navigate = useNavigate()
 
   const handleNavigateToPostPage = () => {
-    navigate(`posts/${issue.number.toString()}`)
+    navigate(`posts/${issue.number}`)
   }
 
   const relativeDateDistanceToNow = formateDateRelativeToNow(

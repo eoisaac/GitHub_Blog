@@ -22,7 +22,7 @@ module.exports = {
         'base-input': 'var(--color-base-input)',
       },
       backgroundImage: {
-        'lines-cover': "url('./public/assets/images/cover.svg')",
+        'lines-cover': "url('/assets/images/cover.svg')",
       },
       typography: ({ theme }) => ({
         DEFAULT: {
