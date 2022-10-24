@@ -1,10 +1,10 @@
 import { ArrowSquareOut, Buildings, GithubLogo, Users } from 'phosphor-react'
 import { useQuery } from 'react-query'
-import { Profile } from '../../../@types/types'
-import { InfoItem } from '../../../components/InfoItem'
-import { NavigationLink } from '../../../components/NavigationLink'
-import { getUserProfile } from '../../../services/axios/requests/githubApi'
-import { Header } from '../../components/Header'
+import { Profile } from '../../@types/types'
+import { InfoItem } from '../../components/InfoItem'
+import { NavigationLink } from '../../components/NavigationLink'
+import { getUserProfile } from '../../services/axios/requests/githubApi'
+import { Header } from './Header'
 
 export const ProfileContainer = () => {
   const { data: profile, isFetching } = useQuery<Profile>(

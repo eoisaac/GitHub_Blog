@@ -1,5 +1,5 @@
 import { CaretLeft } from 'phosphor-react'
-import { NavigationLink } from '../../components/NavigationLink'
+import { NavigationLink } from '../components/NavigationLink'
 
 export const NotFound = () => {
   return (

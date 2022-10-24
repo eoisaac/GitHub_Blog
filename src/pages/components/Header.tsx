@@ -3,7 +3,7 @@ import { Loading } from '../../components/Loading'
 
 interface HeaderProps {
   children: ReactNode
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 export const Header = ({ children, isLoading }: HeaderProps) => {

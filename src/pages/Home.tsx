@@ -2,11 +2,11 @@ import { MagnifyingGlass } from 'phosphor-react'
 import { ChangeEvent, useState } from 'react'
 import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { Issue } from '../../@types/types'
-import { Loading } from '../../components/Loading'
+import { Issue } from '../@types/types'
+import { Loading } from '../components/Loading'
 
-import { PostCard } from '../../components/PostCard'
-import { getIssues } from '../../services/axios/requests/githubApi'
+import { PostCard } from '../components/PostCard'
+import { getIssues } from '../services/axios/requests/githubApi'
 import { ProfileContainer } from './components/ProfileContainer'
 
 export const Home = () => {
