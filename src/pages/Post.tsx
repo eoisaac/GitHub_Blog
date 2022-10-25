@@ -6,7 +6,7 @@ import Markdown from 'markdown-to-jsx'
 import { CodeBlock } from '../components/CodeBlock'
 import { PostInfo } from './components/PostInfo'
 import { Loading } from '../components/Loading'
-import { Header } from './components/Header'
+import { Header } from '../components/layouts/Header'
 
 export const Post = () => {
   const { number } = useParams()

@@ -4,7 +4,7 @@ import { Profile } from '../../@types/types'
 import { InfoItem } from '../../components/InfoItem'
 import { NavigationLink } from '../../components/NavigationLink'
 import { getUserProfile } from '../../services/axios/requests/githubApi'
-import { Header } from './Header'
+import { Header } from '../../components/layouts/Header'
 
 export const ProfileContainer = () => {
   const { data: profile, isFetching } = useQuery<Profile>(

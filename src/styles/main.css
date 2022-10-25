@@ -19,7 +19,7 @@
   }
 
   :root {
-    --color-primary: #3294F8;
+    --color-primary: theme(colors.orange.600);
     --color-base-title: #E7EDF4;
     --color-base-subtitle: #C4D4E3;
     --color-base-text: #AFC2D4;

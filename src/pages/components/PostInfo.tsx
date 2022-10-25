@@ -17,7 +17,7 @@ interface PostInfoProps {
 export const PostInfo = ({ post }: PostInfoProps) => {
   const relativeDateDistanceToNow = formateDateRelativeToNow(
     'en-US',
-    new Date(),
+    new Date(post.created_at),
   )
 
   return (
