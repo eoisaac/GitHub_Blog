@@ -13,7 +13,13 @@ interface ThemeContextProviderProps {
 export const ThemeContext = createContext({} as ThemeContextType)
 
 export const ThemeProvider = ({ children }: ThemeContextProviderProps) => {
-  const [theme, setTheme] = useState('dark')
+  const preferedTheme = window.matchMedia('(prefers-color-scheme: dark)')
+    .matches
+    ? 'dark'
+    : 'light'
+  const storedTheme = localStorage.getItem('theme')
+
+  const [theme, setTheme] = useState(storedTheme || preferedTheme)
 
   const isDark = theme === 'dark'
 
@@ -22,10 +28,16 @@ export const ThemeProvider = ({ children }: ThemeContextProviderProps) => {
   }
 
   useEffect(() => {
+    storedTheme && setTheme(storedTheme)
+  }, [storedTheme])
+
+  useEffect(() => {
     isDark
       ? document.documentElement.classList.add('dark')
       : document.documentElement.classList.remove('dark')
-  }, [isDark])
+
+    localStorage.setItem('theme', theme)
+  }, [isDark, theme])
 
   return (
     <ThemeContext.Provider value={{ theme, isDark, toggleTheme }}>
