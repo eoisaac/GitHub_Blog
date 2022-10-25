@@ -2,7 +2,7 @@ export const Cover = () => {
   return (
     <div
       className="h-48 md:h-72 relative top-0 inset-x-0 z-10 flex justify-center 
-      items-start pt-10 md:pt-16 before:bg-lines-cover bg-cover bg-center"
+      items-start pt-10 md:pt-16 bg-lines-cover bg-cover bg-center"
     >
       <h2
         className="flex md:flex-col justify-center content-center flex-wrap 

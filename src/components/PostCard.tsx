@@ -21,7 +21,7 @@ export const PostCard = ({ issue }: PostCartProps) => {
   return (
     <li
       className="w-full h-[260px] cursor-pointer overflow-hidden 
-      border-base-post border-2 hover:border-base-label
+      border-base-post border-2 hover:border-base-label 
       hover:transition hover:ease-in-out hover:duration-200 rounded-xl"
       onClick={handleNavigateToPostPage}
     >

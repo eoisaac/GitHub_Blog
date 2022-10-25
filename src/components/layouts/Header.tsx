@@ -17,9 +17,10 @@ export const Header = ({ children, isLoading }: HeaderProps) => {
     >
       {isLoading ? <Loading /> : children}
       <button
-        onClick={toggleTheme}
         className="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 text-2xl 
         text-base-title hover:text-primary"
+        title={isDark ? 'Light' : 'Dark'}
+        onClick={toggleTheme}
       >
         {isDark ? <Sun /> : <Moon />}
       </button>

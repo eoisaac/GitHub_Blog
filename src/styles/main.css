@@ -16,20 +16,22 @@
     --color-base-profile: #0B1B2B;
     --color-base-background: #071422;
     --color-base-input: #040F1A;
+    --cover: url('/assets/images/cover_dark.svg')
   }
 
   :root {
-    --color-primary: theme(colors.orange.600);
-    --color-base-title: #E7EDF4;
-    --color-base-subtitle: #C4D4E3;
-    --color-base-text: #AFC2D4;
-    --color-base-span: #7B96B2;
-    --color-base-label: #3A536B;
-    --color-base-border: #1C2F41;
-    --color-base-post: #112131;
-    --color-base-profile: #0B1B2B;
-    --color-base-background: #071422;
-    --color-base-input: #040F1A;
+    --color-primary: #206DBA;
+    --color-base-title: #071422;
+    --color-base-subtitle: #0B1B2B;
+    --color-base-text: #736D7A;
+    --color-base-span: #6F6F73;
+    --color-base-label: #BFBFC3;
+    --color-base-border: #E7E7E9;
+    --color-base-post: #FFFFFF;
+    --color-base-profile: #FCFBF9;
+    --color-base-background: #F3F3F4;
+    --color-base-input: #FFFFFF;
+    --cover: url('/assets/images/cover_light.svg')
   }
 }
 

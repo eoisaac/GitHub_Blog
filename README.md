@@ -1,1 +1,1 @@
-# GitHub_Blog
+# GitHub Blog
