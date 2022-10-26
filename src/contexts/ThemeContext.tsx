@@ -12,7 +12,7 @@ interface ThemeContextProviderProps {
 
 export const ThemeContext = createContext({} as ThemeContextType)
 
-const getInitialTheme = () => {
+const getTheme = () => {
   const storedTheme = localStorage.getItem('theme')
   const preferedIsDark = window.matchMedia(
     '(prefers-color-scheme: dark)',
@@ -25,15 +25,16 @@ const getInitialTheme = () => {
 }
 
 export const ThemeProvider = ({ children }: ThemeContextProviderProps) => {
-  const [theme, setTheme] = useState(getInitialTheme)
+  const [theme, setTheme] = useState(getTheme)
   const isDark = theme === 'dark'
 
   useEffect(() => {
     const root = window.document.documentElement
+    const isDark = theme === 'dark'
 
     isDark ? root.classList.add('dark') : root.classList.remove('dark')
     localStorage.setItem('theme', theme)
-  }, [isDark, theme])
+  }, [theme])
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'))
