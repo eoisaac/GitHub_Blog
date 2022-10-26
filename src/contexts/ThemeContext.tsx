@@ -12,32 +12,32 @@ interface ThemeContextProviderProps {
 
 export const ThemeContext = createContext({} as ThemeContextType)
 
-export const ThemeProvider = ({ children }: ThemeContextProviderProps) => {
-  const preferedTheme = window.matchMedia('(prefers-color-scheme: dark)')
-    .matches
-    ? 'dark'
-    : 'light'
+const getInitialTheme = () => {
   const storedTheme = localStorage.getItem('theme')
+  const preferedIsDark = window.matchMedia(
+    '(prefers-color-scheme: dark)',
+  ).matches
 
-  const [theme, setTheme] = useState(storedTheme || preferedTheme)
+  if (storedTheme) return storedTheme
+  if (preferedIsDark) return 'dark'
 
+  return 'light'
+}
+
+export const ThemeProvider = ({ children }: ThemeContextProviderProps) => {
+  const [theme, setTheme] = useState(getInitialTheme)
   const isDark = theme === 'dark'
+
+  useEffect(() => {
+    const root = window.document.documentElement
+
+    isDark ? root.classList.add('dark') : root.classList.remove('dark')
+    localStorage.setItem('theme', theme)
+  }, [isDark, theme])
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'))
   }
-
-  useEffect(() => {
-    storedTheme && setTheme(storedTheme)
-  }, [storedTheme])
-
-  useEffect(() => {
-    isDark
-      ? document.documentElement.classList.add('dark')
-      : document.documentElement.classList.remove('dark')
-
-    localStorage.setItem('theme', theme)
-  }, [isDark, theme])
 
   return (
     <ThemeContext.Provider value={{ theme, isDark, toggleTheme }}>
