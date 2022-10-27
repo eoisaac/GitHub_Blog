@@ -18,6 +18,7 @@ export const Home = () => {
     isError,
   } = useQuery<Issue[]>('ISSUES_LIST', getIssues)
 
+  const USER = 'eoisaac'
   const issuesAmount = issuesList?.length
   const hasFilterSearch = filterSearch.length > 0
 
@@ -36,6 +37,14 @@ export const Home = () => {
   const handleFilterSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setFilterSearch(event.target.value.toLowerCase())
   }
+
+  const renderPostCards = (postsList: Issue[]) =>
+    postsList?.map(
+      (issue) =>
+        issue.user.login === USER && (
+          <PostCard key={issue.number} issue={issue} />
+        ),
+    )
 
   return (
     <>
@@ -83,12 +92,8 @@ export const Home = () => {
         ) : (
           <ul className="grid sm:grid-cols-2  gap-4 sm:gap-8">
             {hasFilterSearch
-              ? filteredPosts?.map((issue) => (
-                  <PostCard key={issue.number} issue={issue} />
-                ))
-              : issuesList?.map((issue) => (
-                  <PostCard key={issue.number} issue={issue} />
-                ))}
+              ? renderPostCards(filteredPosts!)
+              : renderPostCards(issuesList!)}
           </ul>
         )}
       </main>

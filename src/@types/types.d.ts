@@ -13,12 +13,12 @@ export interface Issue {
   created_at: string
   title: string
   body: string
-}
-
-export interface PostContent extends Issue {
   user: {
     login: string
   }
+}
+
+export interface PostContent extends Issue {
   html_url: string
   comments: string
 }
