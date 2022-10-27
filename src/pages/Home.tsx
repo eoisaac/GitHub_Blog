@@ -11,15 +11,17 @@ import { ProfileContainer } from './components/ProfileContainer'
 
 export const Home = () => {
   const [filterSearch, setFilterSearch] = useState('')
-  const hasFilterSearch = filterSearch.length > 0
-
-  const navigate = useNavigate()
 
   const {
     data: issuesList,
     isFetching,
     isError,
   } = useQuery<Issue[]>('ISSUES_LIST', getIssues)
+
+  const issuesAmount = issuesList?.length
+  const hasFilterSearch = filterSearch.length > 0
+
+  const navigate = useNavigate()
 
   if (isError) {
     navigate('/404')
@@ -30,8 +32,6 @@ export const Home = () => {
       issue.title.toLocaleLowerCase().includes(filterSearch) ||
       issue.body.toLocaleLowerCase().includes(filterSearch),
   )
-
-  const issuesAmount = issuesList?.length
 
   const handleFilterSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setFilterSearch(event.target.value.toLowerCase())
